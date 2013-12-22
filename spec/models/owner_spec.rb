@@ -9,4 +9,7 @@ describe Owner do
   it { should have_valid(:email).when('jsmith@gmail.com', 'hello@world.edu') }
   it { should_not have_valid(:email).when('jsmith@gmail', '@gmail.com', 'jsmith.com') }
 
+  it { should have_many(:dog_ownerships).dependent(:destroy) }
+  it { should have_many(:dogs).through(:dog_ownerships) }
+
 end
